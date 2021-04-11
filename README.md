@@ -1,8 +1,8 @@
 # pygrunt
 
-![GitHub](https://img.shields.io/github/license/lithiumoxide/pygrunt) | ![GitHub contributors](https://img.shields.io/github/contributors/lithiumoxide/pygrunt)
+![GitHub contributors](https://img.shields.io/github/contributors/lithiumoxide/pygrunt)
 
-A minimal Terragrunt wrapper for Python
+A minimal Terragrunt wrapper for Python.
 
 ## Usage
 ```python
