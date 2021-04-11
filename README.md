@@ -1,6 +1,6 @@
 # pygrunt
 
-![GitHub contributors](https://img.shields.io/github/contributors/lithiumoxide/pygrunt)
+![PyPI](https://img.shields.io/pypi/v/pygrunt) ![PyPI - License](https://img.shields.io/pypi/l/pygrunt)
 
 A minimal Terragrunt wrapper for Python.
 
@@ -17,8 +17,8 @@ pg.action('/path/to/files/', 'apply')
 * Terraform
 
 ## Compatibility
-Built with Python 3.8
+Built with Python 3.8. Should work on any version of Python 3.x.
 
 ## Authors
 
-`pygrunt` was written by `Conor Farrell <conor.farrell8@gmail.com>`.
+`pygrunt` was written by Conor Farrell `<conor dot farrell8 at gmail dot com>`.

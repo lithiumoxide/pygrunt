@@ -15,7 +15,7 @@ def read(filename):
 
 setup(
     name="pygrunt",
-    version="0.1.0",
+    version="0.0.2",
     url="https://github.com/lithiumoxide/pygrunt",
     license='MIT',
 
@@ -24,6 +24,9 @@ setup(
 
     description="A minimal Terragrunt wrapper for Python",
     long_description=read("README.md"),
+    long_description_content_type='text/markdown',
+
+    python_requires='~=3.4',
 
     packages=find_packages(exclude=('tests',)),
 
@@ -33,7 +36,6 @@ setup(
         'Development Status :: 2 - Pre-Alpha',
         'License :: OSI Approved :: MIT License',
         'Programming Language :: Python',
-        'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
