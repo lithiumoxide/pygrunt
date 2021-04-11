@@ -8,12 +8,8 @@ A minimal Terragrunt wrapper for Python
 ```python
 from pygrunt import pygrunt as pg
 
-pg.plan('/path/to/terragrunt.hcl')
-```
-
-## Installation
-```
-pip install pygrunt
+pg.action('/path/to/files/', 'plan')
+pg.action('/path/to/files/', 'apply')
 ```
 
 ## Requirements
@@ -22,9 +18,6 @@ pip install pygrunt
 
 ## Compatibility
 Built with Python 3.8
-
-## Licence
-MIT
 
 ## Authors
 
