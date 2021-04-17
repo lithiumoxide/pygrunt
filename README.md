@@ -12,12 +12,18 @@ pg.action('/path/to/files/', 'plan')
 pg.action('/path/to/files/', 'apply')
 ```
 
+## Installation
+
+```
+pip3 install pygrunt
+```
+
 ## Requirements
 * Terragrunt
 * Terraform
 
 ## Compatibility
-Built with Python 3.8. Should work on any version of Python 3.x.
+Built and tested with Python 3.8, and it should work on any version of Python 3.x.
 
 ## Authors
 
