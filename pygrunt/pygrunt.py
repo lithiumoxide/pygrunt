@@ -1,14 +1,35 @@
 from subprocess import Popen, PIPE, STDOUT
+import re
 
-def action(path: str, *action: str) -> tuple:
-    if not action:
-        tg_action = 'plan'
+def escape_ansi(line: str) -> str:
+    ansi_escape =re.compile(r'(\x9B|\x1B\[)[0-?]*[ -\/]*[@-~]')
+
+    return ansi_escape.sub('', line)
+
+def action(path: str, action: str) -> tuple:
+    if action == 'apply':
+        process = Popen(
+            ['terragrunt', 'apply', '-auto-approve', '--terragrunt-working-dir', path],
+            stderr=STDOUT, stdout=PIPE
+        )
+        message = escape_ansi(process.communicate()[0].decode('utf8')).replace('\\n', '\n')
+        return_code = process.returncode
+    elif action == 'destroy':
+        process = Popen(
+            ['terragrunt', 'destroy', '-auto-approve', '--terragrunt-working-dir', path],
+            stderr=STDOUT, stdout=PIPE
+        )
+        message = escape_ansi(process.communicate()[0].decode('utf8')).replace('\\n', '\n')
+        return_code = process.returncode
+    elif action == 'plan':
+        process = Popen(
+            ['terragrunt', 'plan', '--terragrunt-working-dir', path],
+            stderr=STDOUT, stdout=PIPE
+        )
+        message = escape_ansi(process.communicate()[0].decode('utf8')).replace('\\n', '\n')
+        return_code = process.returncode
     else:
-        tg_action = action[0]
+        message = 'ERROR: No suitable commands detected.'
+        return_code = 1
 
-    process = Popen(
-        ['terragrunt', tg_action, '--terragrunt-working-dir', path],
-        stderr=STDOUT, stdout=PIPE
-    )
-
-    return process.communicate()[0].decode('utf-8'), process.returncode
+    return message, return_code
